@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#06140f" />
+  <title>Beranda — Amal Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header-inner">
+      <div>
+        <h1 id="greetingTitle">Assalamu'alaikum</h1>
+        <div class="muted" id="dateLine">—</div>
+      </div>
+      <div class="hijri-badge" id="hijriBadge" title="Perkiraan Hijriah">—</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="alert alert-error" id="errorBox"></div>
+
+    <section class="greeting">
+      <div class="section-title" style="margin-top:0">
+        <h2>Aktivitas Hari Ini</h2>
+        <span class="link" id="todayProgressText">—</span>
+      </div>
+      <div class="stat-grid" id="todayStats">
+        <div class="stat-card"><div class="label">Selesai</div><div class="value" id="statDoneToday">—</div><div class="sub">amalan hari ini</div></div>
+        <div class="stat-card"><div class="label">Wajib</div><div class="value gold" id="statWajibToday">—</div><div class="sub">tercatat selesai</div></div>
+        <div class="stat-card"><div class="label">Al-Qur'an</div><div class="value" id="statQuranToday">—</div><div class="sub">halaman/menit</div></div>
+        <div class="stat-card"><div class="label">Catatan</div><div class="value gold" id="statNotesToday">—</div><div class="sub">dengan catatan</div></div>
+      </div>
+      <div class="progress" style="margin-top:12px"><div id="progressBar" style="width:0%"></div></div>
+    </section>
+
+    <div class="section-title">
+      <h2>Ringkasan 7 Hari</h2>
+      <a class="link" href="evaluasi.html">Lihat evaluasi</a>
+    </div>
+    <div class="stat-grid" id="weekStats">
+      <div class="stat-card"><div class="label">Total</div><div class="value" id="weekTotal">—</div><div class="sub">catatan</div></div>
+      <div class="stat-card"><div class="label">Hari Aktif</div><div class="value gold" id="weekActiveDays">—</div><div class="sub">dari 7</div></div>
+      <div class="stat-card"><div class="label">Konsisten</div><div class="value" id="weekConsistent">—</div><div class="sub">≥3 hari</div></div>
+      <div class="stat-card"><div class="label">Evaluasi</div><div class="value gold" id="weekNegative">—</div><div class="sub">perilaku tercatat</div></div>
+    </div>
+
+    <div class="section-title">
+      <h2>Ringkasan 30 Hari</h2>
+    </div>
+    <div class="stat-grid" id="monthStats">
+      <div class="stat-card"><div class="label">Total</div><div class="value" id="monthTotal">—</div><div class="sub">catatan</div></div>
+      <div class="stat-card"><div class="label">Hari Aktif</div><div class="value gold" id="monthActiveDays">—</div><div class="sub">dari 30</div></div>
+      <div class="stat-card"><div class="label">Kategori Top</div><div class="value" id="monthTopCat" style="font-size:0.9rem;line-height:1.2">—</div><div class="sub">paling sering</div></div>
+      <div class="stat-card"><div class="label">Rata-rata/hari</div><div class="value gold" id="monthAvg">—</div><div class="sub">catatan</div></div>
+    </div>
+
+    <div class="section-title">
+      <h2>Amalan Terakhir</h2>
+      <a class="link" href="riwayat.html">Riwayat</a>
+    </div>
+    <div id="recentList">
+      <div class="loading"><div class="spinner"></div><span>Memuat…</span></div>
+    </div>
+
+    <div class="section-title">
+      <h2>Pengingat</h2>
+    </div>
+    <div id="remindersBox" class="card">
+      <div class="loading"><div class="spinner"></div><span>Memuat…</span></div>
+    </div>
+
+    <div class="section-title">
+      <h2>Evaluasi Otomatis</h2>
+      <a class="link" href="evaluasi.html">Detail</a>
+    </div>
+    <div id="autoEvalBox" class="card">
+      <div class="loading"><div class="spinner"></div><span>Memuat…</span></div>
+    </div>
+
+    <p class="text-center text-muted mt-4" style="font-size:0.72rem;line-height:1.6">
+      Aplikasi ini mencatat amal untuk evaluasi pribadi.<br />
+      Tidak ada klaim perhitungan pahala/dosa atau kepastian diterimanya amal.
+    </p>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="dashboard.html" class="active"><span class="icon">🏠</span>Beranda</a>
+      <a href="amalan.html"><span class="icon">🕌</span>Amalan</a>
+      <a href="evaluasi.html"><span class="icon">📊</span>Evaluasi</a>
+      <a href="riwayat.html"><span class="icon">📅</span>Riwayat</a>
+      <a href="profil.html"><span class="icon">👤</span>Profil</a>
+    </div>
+  </nav>
+
+  <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

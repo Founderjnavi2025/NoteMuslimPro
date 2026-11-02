@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#06140f" />
+  <title>Riwayat — Amal Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header-inner">
+      <h1>Riwayat Amal</h1>
+      <span class="hijri-badge" id="todayBadge">—</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="alert alert-error" id="errorBox"></div>
+
+    <div class="card" style="padding:14px">
+      <div class="field" style="margin-bottom:8px">
+        <label for="dateInput">Pilih tanggal</label>
+        <input type="date" id="dateInput" />
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-secondary btn-sm" id="prevDayBtn" type="button" style="flex:1">← Hari sebelumnya</button>
+        <button class="btn btn-secondary btn-sm" id="nextDayBtn" type="button" style="flex:1">Hari berikutnya →</button>
+      </div>
+    </div>
+
+    <div class="section-title">
+      <h2 id="selectedDateLabel">—</h2>
+      <span class="link" id="countLabel"></span>
+    </div>
+
+    <div id="logsList">
+      <div class="loading"><div class="spinner"></div><span>Memuat riwayat…</span></div>
+    </div>
+
+    <div class="section-title"><h2>Ringkasan 14 Hari Terakhir</h2></div>
+    <div id="miniCalendar" class="card">
+      <div class="loading"><div class="spinner"></div><span>Memuat…</span></div>
+    </div>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="dashboard.html"><span class="icon">🏠</span>Beranda</a>
+      <a href="amalan.html"><span class="icon">🕌</span>Amalan</a>
+      <a href="evaluasi.html"><span class="icon">📊</span>Evaluasi</a>
+      <a href="riwayat.html" class="active"><span class="icon">📅</span>Riwayat</a>
+      <a href="profil.html"><span class="icon">👤</span>Profil</a>
+    </div>
+  </nav>
+
+  <script type="module" src="js/riwayat.js"></script>
+</body>
+</html>

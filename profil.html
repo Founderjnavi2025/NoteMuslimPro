@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#06140f" />
+  <title>Profil — Amal Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header-inner">
+      <h1>Profil & Pengaturan</h1>
+      <span class="hijri-badge" id="hijriBadge">—</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="alert alert-error" id="errorBox"></div>
+    <div class="alert alert-success" id="successBox"></div>
+
+    <div class="card" style="text-align:center;padding:24px">
+      <div class="brand-logo" style="width:56px;height:56px;font-size:24px;margin-bottom:8px">👤</div>
+      <h3 id="displayNameLabel" style="margin-bottom:4px">—</h3>
+      <p class="text-muted" id="emailLabel" style="font-size:0.85rem;margin:0">—</p>
+    </div>
+
+    <div class="section-title"><h2>Edit Profil</h2></div>
+    <form class="card" id="profileForm">
+      <div class="field">
+        <label for="displayName">Nama tampilan</label>
+        <input type="text" id="displayName" maxlength="60" required />
+      </div>
+      <button type="submit" class="btn btn-primary" id="saveProfileBtn">Simpan Profil</button>
+    </form>
+
+    <div class="section-title"><h2>Ubah Password</h2></div>
+    <form class="card" id="passwordForm">
+      <div class="field">
+        <label for="newPassword">Password baru (min. 6 karakter)</label>
+        <input type="password" id="newPassword" autocomplete="new-password" minlength="6" required />
+      </div>
+      <button type="submit" class="btn btn-secondary" id="savePasswordBtn">Ubah Password</button>
+    </form>
+
+    <div class="section-title"><h2>Pengingat</h2></div>
+    <div class="card" id="remindersBox">
+      <div class="loading"><div class="spinner"></div><span>Memuat…</span></div>
+    </div>
+
+    <div class="section-title"><h2>Keluar</h2></div>
+    <div class="card">
+      <button type="button" class="btn btn-danger" id="logoutBtn">Keluar dari Akun</button>
+      <p class="text-muted mt-3" style="font-size:0.75rem;margin-bottom:0">
+        Data amalan Anda tersimpan di server dan akan tersedia kembali saat login.
+      </p>
+    </div>
+
+    <p class="text-center text-muted mt-4" style="font-size:0.72rem">
+      Amal Tracker • dibuat untuk evaluasi diri, bukan penilaian pahala/dosa.
+    </p>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="dashboard.html"><span class="icon">🏠</span>Beranda</a>
+      <a href="amalan.html"><span class="icon">🕌</span>Amalan</a>
+      <a href="evaluasi.html"><span class="icon">📊</span>Evaluasi</a>
+      <a href="riwayat.html"><span class="icon">📅</span>Riwayat</a>
+      <a href="profil.html" class="active"><span class="icon">👤</span>Profil</a>
+    </div>
+  </nav>
+
+  <script type="module" src="js/profil.js"></script>
+</body>
+</html>

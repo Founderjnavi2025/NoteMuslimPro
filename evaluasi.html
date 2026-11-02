@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#06140f" />
+  <title>Evaluasi — Amal Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header-inner">
+      <h1>Evaluasi Otomatis</h1>
+      <span class="hijri-badge" id="todayBadge">—</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="alert alert-error" id="errorBox"></div>
+
+    <div class="chips" id="periodChips">
+      <button class="chip" data-period="1">1 hari</button>
+      <button class="chip active" data-period="7">7 hari</button>
+      <button class="chip" data-period="30">30 hari</button>
+      <button class="chip" data-period="90">90 hari</button>
+      <button class="chip" data-period="365">365 hari</button>
+    </div>
+
+    <div class="card" id="summaryCard">
+      <div class="loading"><div class="spinner"></div><span>Menyusun evaluasi…</span></div>
+    </div>
+
+    <div class="section-title"><h2>Rincian per Amalan</h2></div>
+    <div id="detailList">
+      <div class="loading"><div class="spinner"></div><span>Memuat…</span></div>
+    </div>
+
+    <p class="text-center text-muted mt-4" style="font-size:0.72rem;line-height:1.6">
+      Laporan ini berbasis catatan Anda sendiri. Tidak ada klaim perhitungan pahala/dosa, tingkat keimanan, atau kepastian diterimanya amal. Tidak dicatat bukan berarti tidak dikerjakan.
+    </p>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="dashboard.html"><span class="icon">🏠</span>Beranda</a>
+      <a href="amalan.html"><span class="icon">🕌</span>Amalan</a>
+      <a href="evaluasi.html" class="active"><span class="icon">📊</span>Evaluasi</a>
+      <a href="riwayat.html"><span class="icon">📅</span>Riwayat</a>
+      <a href="profil.html"><span class="icon">👤</span>Profil</a>
+    </div>
+  </nav>
+
+  <script type="module" src="js/evaluasi.js"></script>
+</body>
+</html>

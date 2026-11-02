@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#06140f" />
+  <title>Amalan — Amal Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header-inner">
+      <h1>Katalog Amalan</h1>
+      <span class="hijri-badge" id="todayBadge">—</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="alert alert-error" id="errorBox"></div>
+
+    <div class="field" style="margin-bottom:8px">
+      <input type="search" id="searchInput" placeholder="Cari amalan…" autocomplete="off" />
+    </div>
+
+    <div class="chips" id="categoryChips">
+      <button class="chip active" data-cat="all">Semua</button>
+      <button class="chip" data-cat="wajib">Wajib</button>
+      <button class="chip" data-cat="sunah">Sunah</button>
+      <button class="chip" data-cat="akhlak">Akhlak</button>
+      <button class="chip" data-cat="sosial">Sosial</button>
+      <button class="chip" data-cat="evaluasi">Evaluasi</button>
+    </div>
+
+    <div id="amalanList">
+      <div class="loading"><div class="spinner"></div><span>Memuat katalog…</span></div>
+    </div>
+  </main>
+
+  <!-- Modal log -->
+  <div class="modal-backdrop" id="logModal">
+    <div class="modal" id="logModalContent">
+      <!-- injected -->
+    </div>
+  </div>
+
+  <!-- Modal detail dalil -->
+  <div class="modal-backdrop" id="detailModal">
+    <div class="modal" id="detailModalContent">
+      <!-- injected -->
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="dashboard.html"><span class="icon">🏠</span>Beranda</a>
+      <a href="amalan.html" class="active"><span class="icon">🕌</span>Amalan</a>
+      <a href="evaluasi.html"><span class="icon">📊</span>Evaluasi</a>
+      <a href="riwayat.html"><span class="icon">📅</span>Riwayat</a>
+      <a href="profil.html"><span class="icon">👤</span>Profil</a>
+    </div>
+  </nav>
+
+  <script type="module" src="js/amalan.js"></script>
+</body>
+</html>

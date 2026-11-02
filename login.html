@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#06140f" />
+  <title>Masuk — Amal Tracker</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="auth-wrap container">
+    <div class="brand">
+      <div class="brand-logo">☪</div>
+      <h1 class="brand-title">Masuk</h1>
+      <p class="brand-subtitle">Lanjutkan perjalanan istiqamah Anda</p>
+    </div>
+
+    <div class="card auth-card">
+      <div class="alert alert-error" id="errorBox"></div>
+      <div class="alert alert-success" id="successBox"></div>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" autocomplete="email" required placeholder="nama@email.com" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" autocomplete="current-password" required placeholder="••••••••" minlength="6" />
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submitBtn">Masuk</button>
+      </form>
+
+      <div class="text-center mt-3" style="font-size:0.85rem">
+        <a href="#" id="forgotLink">Lupa password?</a>
+      </div>
+
+      <hr class="hr" />
+
+      <p class="text-center text-muted" style="font-size:0.85rem">
+        Belum punya akun? <a href="register.html">Daftar</a>
+      </p>
+    </div>
+
+    <p class="text-center mt-3"><a href="index.html" class="text-muted" style="font-size:0.8rem">← Kembali</a></p>
+  </div>
+
+  <script type="module">
+    import { signIn, resetPassword, redirectIfAuthed } from './js/auth.js';
+
+    redirectIfAuthed();
+
+    const form = document.getElementById('loginForm');
+    const errorBox = document.getElementById('errorBox');
+    const successBox = document.getElementById('successBox');
+    const submitBtn = document.getElementById('submitBtn');
+
+    function showError(msg) {
+      errorBox.textContent = msg;
+      errorBox.classList.add('show');
+      successBox.classList.remove('show');
+    }
+    function showSuccess(msg) {
+      successBox.textContent = msg;
+      successBox.classList.add('show');
+      errorBox.classList.remove('show');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.classList.remove('show');
+      successBox.classList.remove('show');
+
+      const email = form.email.value.trim();
+      const password = form.password.value;
+
+      if (!email || !password) return showError('Email dan password wajib diisi.');
+      if (password.length < 6) return showError('Password minimal 6 karakter.');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Memproses…';
+
+      try {
+        await signIn({ email, password });
+        window.location.href = 'dashboard.html';
+      } catch (err) {
+        const msg = (err?.message || '').toLowerCase();
+        if (msg.includes('invalid login')) showError('Email atau password salah.');
+        else if (msg.includes('email not confirmed')) showError('Email belum dikonfirmasi. Cek inbox Anda.');
+        else showError(err.message || 'Gagal masuk.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Masuk';
+      }
+    });
+
+    document.getElementById('forgotLink').addEventListener('click', async (e) => {
+      e.preventDefault();
+      const email = form.email.value.trim();
+      if (!email) return showError('Isi email terlebih dahulu untuk reset password.');
+      try {
+        await resetPassword(email);
+        showSuccess('Link reset password telah dikirim ke email Anda.');
+      } catch (err) {
+        showError(err.message || 'Gagal mengirim link reset.');
+      }
+    });
+  </script>
+</body>
+</html>
