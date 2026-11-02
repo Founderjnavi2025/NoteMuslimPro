@@ -4,9 +4,9 @@
 
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
-export const SUPABASE_URL = 'https://YOUR-PROJECT.supabase.co';
-export const SUPABASE_ANON_KEY = 'YOUR-ANON-KEY';
+export const SUPABASE_URL = 'https://kgmigguvgfedylcbilbh.supabase.co';
 
+export const SUPABASE_ANON_KEY = 'sb_publishable_qHCOfyHyN4GGZpffslfWbw_Cge0KZHF';
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
     persistSession: true,
